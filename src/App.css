@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+:root {
+  --color-contenedor-claro: #e0f7fa;
+  --color-contenedor-oscuro: #b2ebf2;
+  --color-gris: #424242;
+  --color-azul-suave: #64b5f6;
+  --color-azul-duro: #2196f3;
+}
+
+.contenedor {
+  background: var(--color-contenedor-oscuro);
+  padding: 1px;
+}
+.active-button {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  /* o cualquier estilo que quieras para resaltar el botón activo */
+  filter: brightness(90%);
+  background-color: gray;
+}
+.itemBtn:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+.btnCollapse{
+  background-color: var(--color-azul-duro)!important;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(-5px);
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
