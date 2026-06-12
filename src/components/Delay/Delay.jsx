@@ -99,6 +99,7 @@ export const Delay = ({ deal }) => {
             "0": deal.customDUEDILIGENCYDATE,
             "1": deal.customAPPRAISALDATE,
             "2": deal.customLOANCONTINGECYDATE,
+            "3": new Date().toISOString() || null
         };
 
        
