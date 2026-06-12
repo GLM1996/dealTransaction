@@ -159,7 +159,7 @@ export const Delay = ({ deal }) => {
             if (!response.ok) throw new Error("Error al guardar");
 
             // 1. Actualizar el deal (SOLO SI SE CREA UN DELAY)
-            console.log("DELAY TYPE: " + form.delayType)
+            
             if (!editingId && form.delayType !== "3") {
                 console.log("ENTRO A ACTUALIZAR DEAL")
                 const dataDeal = {};
