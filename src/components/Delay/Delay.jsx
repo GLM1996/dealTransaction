@@ -101,6 +101,14 @@ export const Delay = ({ deal }) => {
             "2": deal.customLOANCONTINGECYDATE,
         };
 
+       
+        const delayTypeName = {
+            "0": "DUE DILIGENCY DATE",
+            "1": "APPRAISAL DATE",
+            "2": "LOAN CONTINGECY DATE",
+            "3": "CLOSE OF ESCROW"
+        }
+
         const delayData = {
             id: delayId,
             dealId: deal.id,
@@ -111,7 +119,7 @@ export const Delay = ({ deal }) => {
             afecto: form.afecto,
             nota: form.nota,
             dayDelay: form.dayDelay,
-            delayType: form.delayType,
+            delayType: delayTypeName[form.delayType] || "",
             affectDeal: form.affectDeal,
             newCloseDate: form.newCloseDate,
         };
@@ -308,7 +316,7 @@ export const Delay = ({ deal }) => {
                                 <option value="0">DUE DILIGENCY DATE</option>
                                 <option value="1">APPRAISAL DATE</option>
                                 <option value="2">LOAN CONTINGECY DATE</option>
-                                <option value="3">Close of Escrow</option>
+                                <option value="3">CLOSE OF ESCROW</option>
                             </select>
                         </div>
                         {/* Delay Date */}
