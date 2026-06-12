@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { actualizarDealEnServidor } from "../../config/funciones";
+import { useAppContext } from "../../context/AppContext";
 
 export const Delay = ({ deal }) => {
     const getInitialForm = () => ({
@@ -13,6 +14,7 @@ export const Delay = ({ deal }) => {
         affectDeal: false
     });
 
+    const {  context } = useAppContext()
     const [form, setForm] = useState(getInitialForm());
     const [showForm, setShowForm] = useState(false);
     const [editingId, setEditingId] = useState(null);
@@ -90,6 +92,8 @@ export const Delay = ({ deal }) => {
         return Math.round((d1 - d2) / (1000 * 60 * 60 * 24));
     };
 
+   
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -102,7 +106,7 @@ export const Delay = ({ deal }) => {
             "3": new Date().toISOString() || null
         };
 
-       
+
         const delayTypeName = {
             "0": "DUE DILIGENCY DATE",
             "1": "APPRAISAL DATE",
@@ -125,6 +129,14 @@ export const Delay = ({ deal }) => {
             newCloseDate: form.newCloseDate,
         };
 
+        const dataNotify = {
+            user: context.user.name,
+            personLink: `https://homelasvegasnevada.followupboss.com/2/people/view/${context.person.id}`,
+            clientName: context.person.name,
+            dealId: deal.id,
+            dealName: deal.name
+        }
+
         const data = {
             new: !editingId,
             delayId,
@@ -132,6 +144,7 @@ export const Delay = ({ deal }) => {
             dealId: deal.id,
             dealDate: dealDateMap[form.delayType] || null,
             form: delayData,
+            dataNotify: dataNotify
         };
 
         try {
@@ -146,7 +159,9 @@ export const Delay = ({ deal }) => {
             if (!response.ok) throw new Error("Error al guardar");
 
             // 1. Actualizar el deal (SOLO SI SE CREA UN DELAY)
+            console.log("DELAY TYPE: " + form.delayType)
             if (!editingId && form.delayType !== "3") {
+                console.log("ENTRO A ACTUALIZAR DEAL")
                 const dataDeal = {};
 
                 switch (form.delayType) {
