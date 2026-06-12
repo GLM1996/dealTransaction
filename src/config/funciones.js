@@ -72,7 +72,24 @@ async function getUser(id) {
 }
 
 export const searchPersonById = async (id) => {
-  const url = `${servidorNew}/api/people/${id}`; // Changed to GET
+  //const url = `${servidorNew}/api/people/${id}`; // Changed to GET
+  const url = `${servidorNew}/api/people/${id}?${new URLSearchParams({
+    fields: [
+      'id',
+      'name',
+      'stage',
+      'customClientLanguage',
+      'customNEWLeadType',
+      'customNEWPIPELINE',
+      'addresses',
+      'customNEWClientOpenToNewContactInTheFuture',
+      'customNEWClientSQualifyAs',
+      'customVAAMPMTimeToCall',
+      'customVAAMPM2ndTimeToCall',
+      'customBestDaysToCall'
+    ].join(',')
+  })}`;
+  
   const options = {
     method: "GET",
     headers: {
@@ -345,7 +362,7 @@ export const updateDeal = async (data, id, userId, dealId, item) => {
       }
       // 2. Preparar y actualizar la persona si es necesario
       // const dataPerson = prepararDatosPersona(dataSaved);
-      let dataTest = {}      
+      let dataTest = {}
       //Buyer Transaction
       if (data.pipeline === 1) {
         dataTest.customRRealtorAssignedForSplitCommissionBuyer = data.customRealtorNameCloserR || ""

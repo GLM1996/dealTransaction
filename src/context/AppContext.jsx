@@ -24,7 +24,7 @@ export const AppContextProvider = ({ children }) => {
         if (context?.person) {
           setContext(context);
           const personFub =  await searchPersonById(context.person.id);         
-          if (personFub?.success) setPerson(personFub.data);
+          if (personFub?.success) setPerson(personFub.data);          
           if(!personFub?.success){
             throw new Error("Problem with the API the FUB");   
           }

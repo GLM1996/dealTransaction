@@ -308,6 +308,7 @@ export const Delay = ({ deal }) => {
                                 <option value="0">DUE DILIGENCY DATE</option>
                                 <option value="1">APPRAISAL DATE</option>
                                 <option value="2">LOAN CONTINGECY DATE</option>
+                                <option value="3">Close of Escrow</option>
                             </select>
                         </div>
                         {/* Delay Date */}
