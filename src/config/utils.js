@@ -5,7 +5,7 @@ import moment from "moment-timezone";
 export const servidor = "https://servernode.homelasvegasnevada.com";
 export const servidorNew = "https://servidor.homelasvegasnevada.com"
 // export const servidorNew = "http://localhost:3001"
-// export const servidor = "http://localhost:5500";
+// export const servidor = "http://localhost:3002";
 
 export const normalizeString = (str) => str.toLowerCase().replace(/\s+/g, "");
 

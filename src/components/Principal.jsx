@@ -36,9 +36,9 @@ export default function Principal({ item }) {
     };
 
     const handleSave = () => {
-        console.log(formData)
+      
         if (formData?.name && formData?.stageId) {
-            console.log(item)
+           
             if (!item) {
                 crearDeal(formData, person.id, context.user.id)
             } else {
@@ -51,7 +51,6 @@ export default function Principal({ item }) {
                 autoClose: 2000,
             });
         }
-
     }
 
     return (

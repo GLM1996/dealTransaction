@@ -134,7 +134,8 @@ export const Delay = ({ deal }) => {
             personLink: `https://homelasvegasnevada.followupboss.com/2/people/view/${context.person.id}`,
             clientName: context.person.name,
             dealId: deal.id,
-            dealName: deal.name
+            dealName: deal.name,
+            delayNote: form.delayNote
         }
 
         const data = {

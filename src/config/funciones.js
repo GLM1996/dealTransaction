@@ -204,7 +204,7 @@ export const crearDeal = async (data, id, userId) => {
   try {
     const dataSaved = cleanData(data, id, userId);
     delete dataSaved.split
-    console.log(data)
+    console.log(dataSaved)
     // // 1. Crear el deal
     const dealResult = await crearDealEnServidor(dataSaved);
 
@@ -222,6 +222,7 @@ export const crearDeal = async (data, id, userId) => {
         //dataSaved.customRLeadOwnerSplitTypeBuyer = data.split || ""
       }
 
+   
       // 2. Preparar y actualizar la persona si es necesario
       const dataPerson = prepararDatosPersona(dataSaved);
 
@@ -276,7 +277,12 @@ const prepararDatosPersona = (dataSaved) => {
     "customAPPRAISALDATE",
     "customDUEDILIGENCYDATE",
     "customLOANCONTINGECYDATE",
-    "customTITLECOMPANIES"
+    "customTITLECOMPANIES",
+    "customInitialHomePriceBuyerOrSeller",
+    "customInitialPriceDateBuyerOrSeller",
+    "customLastPriceChangeDateBuyerOrSeller",
+    "customNumberOfPriceAdjustmentsBuyerOrSeller",
+    "customTotalPriceAdjustmentAmountBuyerOrSeller"
   ];
 
   const dataPerson = { ...dataSaved };
